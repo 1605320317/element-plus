@@ -4,8 +4,11 @@
     <br />
 
     <el-config-provider :locale="locale">
-      <el-table mb-1 :data="[]" />
-      <el-pagination :total="100" />
+      <el-date-picker
+        v-model="value1"
+        type="date"
+        placeholder="Pick a day"
+      />
     </el-config-provider>
   </div>
 </template>
@@ -15,6 +18,7 @@ import { computed, ref } from 'vue'
 import zhCn from 'element-plus/dist/locale/zh-cn.mjs'
 import en from 'element-plus/dist/locale/en.mjs'
 
+  const value1 = ref('')
 const language = ref('zh-cn')
 const locale = computed(() => (language.value === 'zh-cn' ? zhCn : en))
 
